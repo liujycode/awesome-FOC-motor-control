@@ -1,6 +1,10 @@
 # awesome-FOC-motor-control · 电机控制 FOC 学习路径与资源精选
 
+![License](https://img.shields.io/badge/license-MIT-green) ![Stars](https://img.shields.io/github/stars/liujycode/awesome-FOC-motor-control?style=flat&logo=github) ![Last Commit](https://img.shields.io/github/last-commit/liujycode/awesome-FOC-motor-control/main?logo=github) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+
 **A curated, path-based learning repository for FOC / PMSM / BLDC motor control — from physics intuition to production delivery. 电机控制资料不缺，缺的是顺序。**
+
+当前收录：**26 条分层资源导读 · 11 个开源项目源码路线 · 9 条调试方法论 · 25 道面试场景题**（持续补充中）
 
 ---
 
@@ -11,6 +15,8 @@
 进来先做一件事：拿每层的验收动作对一遍自己，停在第一个"没做过"上，那就是你当前的层。
 
 ## 七层技能树
+
+![FOC 七层技能树](docs/skill-tree.svg)
 
 ```
 L6 工程交付    热 / EMC / 保护 / 量产一致性 / 成本
@@ -46,7 +52,7 @@ L0 物理直觉   磁场、反电动势、KV/Kt、换相
 | L5 | Microchip AN1078（滑模）、TI SPRUHJ1I（FAST）、NXP AN14454（单电阻无感） |
 | L6 | [开源固件与项目](resources/开源固件与项目.md) 里 VESC / moteus 的 CHANGELOG 与 issue 区；[调试经验](resources/调试与测量经验.md) 第 4、7、8 条 |
 | 找工作 | [interview/FOC面试高频25问_自测清单.md](interview/FOC面试高频25问_自测清单.md)：每题带层级、答题骨架和追问，盖住关键词自测，卡壳的题就是你的薄弱层 |
-| 写固件 | [tools/](tools/README.md)：嵌入式 C 代码模板（CRC / 环形缓冲区 / PI 控制器等），即将开源 |
+| 写固件 | [tools/](tools/README.md)：嵌入式 C 代码模板（PI 控制器 / 环形缓冲区 / CRC 等），整理中，完成后开源到本目录 |
 
 ## 资源索引
 

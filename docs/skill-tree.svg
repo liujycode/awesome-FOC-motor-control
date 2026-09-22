@@ -1,0 +1,64 @@
+<svg viewBox="0 0 680 748" width="680" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <title>FOC 七层技能树</title>
+  <desc>从 L0 物理直觉到 L6 工程交付的七层技能树，含两道分水岭与各层过关标志</desc>
+  <rect x="0" y="0" width="680" height="748" fill="#FFFFFF"/>
+  <text x="40" y="50" font-size="14" font-weight="500" fill="#000000">FOC 七层技能树</text>
+  <text x="40" y="70" font-size="12" fill="#000000">自下而上爬：停在第一个「没做过」的层，那就是你当前的层</text>
+
+  <g>
+    <rect x="40" y="92" width="600" height="72" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text x="68" y="132" font-size="14" font-weight="500" fill="#000000" text-anchor="middle">L6</text>
+    <text x="110" y="116" font-size="13" font-weight="500" fill="#000000">工程交付<tspan font-size="12" font-weight="400" dx="10">热 / EMC / 保护 / 量产一致性 / 成本</tspan></text>
+    <text x="110" y="142" font-size="12" fill="#000000">过关标志：完整跟过一次样机到小批量，亲手处理过温升、EMC、产线校准中至少一个</text>
+  </g>
+
+  <line x1="60" y1="186" x2="620" y2="186" stroke="#A32D2D" stroke-width="0.5" stroke-dasharray="5 4"/>
+  <text x="340" y="180" font-size="12" font-weight="500" fill="#000000" text-anchor="middle">第二道分水岭：业余求「让它转」，职业求「一千台在客户手里转三年」</text>
+
+  <g>
+    <rect x="40" y="208" width="600" height="72" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text x="68" y="248" font-size="14" font-weight="500" fill="#000000" text-anchor="middle">L5</text>
+    <text x="110" y="232" font-size="13" font-weight="500" fill="#000000">无感观测器<tspan font-size="12" font-weight="400" dx="10">滑模 / 龙伯格 / EKF，盲启动 + 切换</tspan></text>
+    <text x="110" y="258" font-size="12" fill="#000000">过关标志：有感跑通后无感中高速稳跑，说得清方案在多少转以下失效</text>
+  </g>
+
+  <g>
+    <rect x="40" y="286" width="600" height="72" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text x="68" y="326" font-size="14" font-weight="500" fill="#000000" text-anchor="middle">L4</text>
+    <text x="110" y="310" font-size="13" font-weight="500" fill="#000000">速度/位置环<tspan font-size="12" font-weight="400" dx="10">外环 PI、三环带宽嵌套、惯量匹配、前馈</tspan></text>
+    <text x="110" y="336" font-size="12" fill="#000000">过关标志：阶跃响应干净的速度环，定位到位不喘振的位置环</text>
+  </g>
+
+  <g>
+    <rect x="40" y="364" width="600" height="72" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text x="68" y="404" font-size="14" font-weight="500" fill="#000000" text-anchor="middle">L3</text>
+    <text x="110" y="388" font-size="13" font-weight="500" fill="#000000">FOC 电流环<tspan font-size="12" font-weight="400" dx="10">Clarke/Park、SVPWM、电流环 PI、时序预算</tspan></text>
+    <text x="110" y="414" font-size="12" fill="#000000">过关标志：关掉库，手敲一遍变换和 SVPWM，电机输出平稳扭矩</text>
+  </g>
+
+  <g>
+    <rect x="40" y="442" width="600" height="72" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text x="68" y="482" font-size="14" font-weight="500" fill="#000000" text-anchor="middle">L2</text>
+    <text x="110" y="466" font-size="13" font-weight="500" fill="#000000">测量<tspan font-size="12" font-weight="400" dx="10">示波器触发、电流采样、编码器对齐、看相电压</tspan></text>
+    <text x="110" y="492" font-size="12" fill="#000000">过关标志：不靠库，一次触发抓全 PWM / 相电流 / 编码器波形并读懂</text>
+  </g>
+
+  <line x1="60" y1="536" x2="620" y2="536" stroke="#A32D2D" stroke-width="0.5" stroke-dasharray="5 4"/>
+  <text x="340" y="530" font-size="12" font-weight="500" fill="#000000" text-anchor="middle">第一道分水岭：没过的人调试靠祈祷，过了的人调试靠证据</text>
+
+  <g>
+    <rect x="40" y="558" width="600" height="72" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text x="68" y="598" font-size="14" font-weight="500" fill="#000000" text-anchor="middle">L1</text>
+    <text x="110" y="582" font-size="13" font-weight="500" fill="#000000">功率级<tspan font-size="12" font-weight="400" dx="10">三相桥、MOS 导通/死区、PWM、六步换相</tspan></text>
+    <text x="110" y="608" font-size="12" fill="#000000">过关标志：用六步换相把电机平稳转起来</text>
+  </g>
+
+  <g>
+    <rect x="40" y="636" width="600" height="72" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text x="68" y="676" font-size="14" font-weight="500" fill="#000000" text-anchor="middle">L0</text>
+    <text x="110" y="660" font-size="13" font-weight="500" fill="#000000">物理直觉<tspan font-size="12" font-weight="400" dx="10">磁场、反电动势、KV/Kt、换相</tspan></text>
+    <text x="110" y="686" font-size="12" fill="#000000">过关标志：拿一个电机说得出扭矩从哪来、KV 标的是什么</text>
+  </g>
+
+  <text x="40" y="734" font-size="12" fill="#000000">七层之外还有功能安全、多电机协同、AI 控制——L6 之后再分叉的枝，先把主干长全</text>
+</svg>
