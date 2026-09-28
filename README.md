@@ -4,7 +4,7 @@
 
 **A curated, path-based learning repository for FOC / PMSM / BLDC motor control — from physics intuition to production delivery. 电机控制资料不缺，缺的是顺序。**
 
-当前收录：**26 条分层资源导航 · 11 个开源项目源码路径 · 9 条调试方法论 · 25 道面试场景题 · 2 张调试自检卡**（持续补充中）
+当前收录：**26 条分层资源导航 · 11 个开源项目源码路径 · 9 条调试方法论 · 25 道面试场景题 · 2 张调试自检卡 · 3 个量产代码模板**（持续补充中）
 
 > GitHub repo description（英文，建仓时直接用）：
 > `A layered learning path & curated resources for FOC PMSM BLDC motor-control 电机控制: physics, power stage, measurement, current loop, field-oriented control, observers, production. Open source firmware (VESC/ODrive/SimpleFOC/moteus), tutorials, app notes, debugging notes.`
@@ -81,7 +81,7 @@ L0 物理直觉   磁场、反电动势、KV/Kt、换相
 | L5 | Microchip AN1078（滑模）、TI SPRUHJ1I（FAST）、NXP AN14454（单电阻无感） |
 | L6 | [开源固件与项目](resources/开源固件与项目.md) 里 VESC / moteus 的 CHANGELOG 与 issue 区；[调试经验](resources/调试与测量经验.md) 第 4、7、8 条 |
 | 找工作 | [interview/FOC面试高频25问_自测清单.pdf](interview/FOC面试高频25问_自测清单.pdf)：25 题带层级、答题骨架和追问，盖住关键词自测，卡壳的题就是你的薄弱层 |
-| 写固件 | [tools/](tools/README.md)：嵌入式 C 代码模板（CRC / 环形缓冲区 / PI 控制器等），模板在整理中，想优先看到哪个欢迎提 issue |
+| 写固件 | [tools/](tools/README.md)：量产级 C 代码模板——PI 控制器 / 环形缓冲 / SVPWM 已开源，RS485 / CRC / 滤波整理中，欢迎 issue 点名 |
 
 ## 资源索引
 
