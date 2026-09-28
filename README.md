@@ -6,9 +6,6 @@
 
 当前收录：**26 条分层资源导航 · 11 个开源项目源码路径 · 9 条调试方法论 · 25 道面试场景题 · 2 张调试自检卡 · 3 个量产代码模板**（持续补充中）
 
-> GitHub repo description（英文，建仓时直接用）：
-> `A layered learning path & curated resources for FOC PMSM BLDC motor-control 电机控制: physics, power stage, measurement, current loop, field-oriented control, observers, production. Open source firmware (VESC/ODrive/SimpleFOC/moteus), tutorials, app notes, debugging notes.`
-
 ---
 
 这不是一份链接清单，是一棵**七层技能树**。
