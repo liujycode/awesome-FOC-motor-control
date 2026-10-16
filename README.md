@@ -110,9 +110,9 @@ L0 物理直觉   磁场、反电动势、KV/Kt、换相
 
 ## 资源索引
 
-- 📦 [resources/开源固件与项目.md](resources/开源固件与项目.md) — VESC / moteus / ODrive / SimpleFOC / AM32 对比（语言、许可证、活跃度、适合哪层人看、怎么读源码）
-- 📚 [resources/教程论文与视频.md](resources/教程论文与视频.md) — 按 L0–L6 分层的教程、论文、厂商应用笔记和视频，每条标注入门/进阶
-- 🔧 [resources/调试与测量经验.md](resources/调试与测量经验.md) — 示波器、电流采样、编码器对齐、炸管排查等实战方法论
+- 📦 [resources/开源固件与项目.md](resources/开源固件与项目.md) — 开源固件对比（语言/许可证/活跃度/怎么读源码）+ 开源硬件(PCB)子节 + 中文源（miniFOC/FPGA-FOC 等）
+- 📚 [resources/教程论文与视频.md](resources/教程论文与视频.md) — 按 L0–L6 分层的教程、论文、厂商应用笔记和视频，含仿真与工具链专区与控制理论教材书单
+- 🔧 [resources/调试与测量经验.md](resources/调试与测量经验.md) — 示波器、电流采样、编码器对齐、炸管排查等实战方法论 + EVB 选型、标准/认证验收、信号链测量
 - 📝 [interview/](interview/) — 秋招自测清单，25 题覆盖 L0–L6
 - 📋 [checklists/](checklists/) — 调试现场用的自检卡片，抓波、电流环，一屏五条
 
