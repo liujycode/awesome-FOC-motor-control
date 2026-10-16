@@ -2,6 +2,8 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green) ![Stars](https://img.shields.io/github/stars/liujycode/awesome-FOC-motor-control?style=flat&logo=github) ![Last Commit](https://img.shields.io/github/last-commit/liujycode/awesome-FOC-motor-control/main?logo=github) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen) ![Links Checked](https://img.shields.io/badge/links-checked-brightgreen)
 
+**[English](README.en.md)** — 面向国际受众的精简版简介（中文正文见下）。
+
 **A curated, path-based learning repository for FOC / PMSM / BLDC motor control — from physics intuition to production delivery. 电机控制资料不缺，缺的是顺序。**
 
 当前收录：**26 条分层资源导航 · 11 个开源项目源码路径 · 9 条调试方法论 · 25 道面试场景题 · 2 张调试自检卡 · 3 个量产代码模板**（持续补充中）
