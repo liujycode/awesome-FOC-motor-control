@@ -1,0 +1,85 @@
+name: Link Check
+
+# 链接体检：定期（每周）+ push/PR 时检查 Markdown 里的外链是否失效。
+# 为什么要白名单：TI E2E / Microchip / ST wiki 等站点对 CI 数据中心 IP 有反爬，
+# 会返回 403/超时（假红）。这些域名显式排除，避免「狼来了」导致体检被无视。
+# 想恢复对某个域名的检查：删掉对应的 --exclude 行即可。
+
+on:
+  push:
+    branches: [main, 'chore/**']
+  pull_request:
+    branches: [main]
+  schedule:
+    # 每周一 02:00 UTC = 北京时间 10:00
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: link-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lychee:
+    name: Markdown 外链检查
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      # 缓存检查结果：减少重复请求，降低触发对方限流（429）的概率
+      - name: 恢复链接检查缓存
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.ref }}-${{ github.sha }}
+          restore-keys: |
+            lychee-${{ github.ref }}-
+            lychee-
+
+      - name: 用 lychee 检查链接
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          # 说明：
+          #  - 传入的路径是 glob；中文文件名（resources/*.md、interview/*.md 内）由 glob 覆盖，
+          #    单个中文路径必须加引号，否则会被 shell 按空格/转义拆坏（本仓文件名无空格，
+          #    仍统一加引号以防后续改名）。
+          #  - --accept 200,206,429：429=被限流不算「链接失效」；403 不放行（真 403 要暴露，
+          #    反爬站点改用下面的 --exclude 白名单处理）。
+          #  - --user-agent：默认 UA（lychee/x.y）会被不少站点直接拒；用常见浏览器 UA 降假红。
+          args: >-
+            --no-progress
+            --max-retries 3
+            --retry-wait-time 5
+            --timeout 30
+            --accept 200,206,429
+            --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+            --cache
+            --max-cache-age 1d
+            --exclude 'e2e\.ti\.com'
+            --exclude 'www\.ti\.com'
+            --exclude 'wiki\.st\.com'
+            --exclude 'www\.st\.com'
+            --exclude 'www\.microchip\.com'
+            --exclude 'www\.nxp\.jp'
+            --exclude 'www\.infineon\.com'
+            --exclude 'space\.bilibili\.com'
+            "README.md"
+            "resources/*.md"
+            "interview/*.md"
+        env:
+          # 用 token 提升 GitHub API 速率上限并减少 403（只读，不需要额外权限）
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 保存检查报告（失败时便于定位）
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report
+          path: lychee/out.md
+          if-no-files-found: ignore
+          retention-days: 14

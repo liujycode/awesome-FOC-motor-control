@@ -1,0 +1,47 @@
+# ── 操作系统 ────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ── 编辑器 / IDE ───────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ── Python ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Node ───────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── 构建与临时产物 ─────────────────────────────────────────
+dist/
+build/
+out/
+*.log
+*.tmp
+*.bak
+.cache/
+.lycheecache
+
+# ── 本地私有文件（个人笔记/导出，勿提交）──────────────────
+*.local.*
+*.private.*
