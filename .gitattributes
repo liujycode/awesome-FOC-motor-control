@@ -1,0 +1,30 @@
+# 统一换行风格：仓库内一律按文本处理并规范成 LF
+#
+# 本仓含中文文件名的 Markdown / SVG / 图片；若 Windows 侧按 CRLF 提交，
+# GitHub 网页 diff 与 CI 里的路径匹配都会出现「整文件改动」的噪声。
+# 这里显式声明文本文件用 LF，二进制文件不做任何转换。
+* text=auto eol=lf
+
+# 文本：明确用 LF（含中文名的 Markdown 一并覆盖）
+*.md    text eol=lf
+*.txt   text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.toml  text eol=lf
+*.json  text eol=lf
+*.svg   text eol=lf
+*.c     text eol=lf
+*.h     text eol=lf
+LICENSE text eol=lf
+
+# 二进制：禁止换行转换与文本 diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+
+# 语言统计：Markdown/SVG 不计入语言占比（避免仓库被判定成「HTML/SVG 仓库」）
+*.md  linguist-documentation
+*.svg linguist-documentation
