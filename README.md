@@ -1,10 +1,28 @@
 # awesome-FOC-motor-control · 电机控制 FOC 学习路径与资源精选
 
-![License](https://img.shields.io/badge/license-MIT-green) ![Stars](https://img.shields.io/github/stars/liujycode/awesome-FOC-motor-control?style=flat&logo=github) ![Last Commit](https://img.shields.io/github/last-commit/liujycode/awesome-FOC-motor-control/main?logo=github) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green) ![Stars](https://img.shields.io/github/stars/liujycode/awesome-FOC-motor-control?style=flat&logo=github) ![Last Commit](https://img.shields.io/github/last-commit/liujycode/awesome-FOC-motor-control/main?logo=github) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen) ![Links Checked](https://img.shields.io/badge/links-checked-brightgreen)
+
+**[English](README.en.md)** — 面向国际受众的精简版简介（中文正文见下）。
 
 **A curated, path-based learning repository for FOC / PMSM / BLDC motor control — from physics intuition to production delivery. 电机控制资料不缺，缺的是顺序。**
 
 当前收录：**26 条分层资源导航 · 11 个开源项目源码路径 · 9 条调试方法论 · 25 道面试场景题 · 2 张调试自检卡 · 3 个量产代码模板**（持续补充中）
+
+---
+
+## 目录
+
+- [七层技能树](#七层技能树)
+- [怎么用这份清单](#怎么用这份清单)
+- [资料速取（30 秒上手）](#资料速取30-秒上手)
+- [深水区文章索引](#深水区文章索引持续更新)
+- [快速导航](#快速导航)
+- [资源索引](#资源索引)
+- [收录标准](#收录标准)
+- [相关项目](#相关项目)
+- [贡献方式](#贡献方式)
+- [最近更新](#最近更新)
+- [License](#license)
 
 ---
 
@@ -40,6 +58,16 @@ L0 物理直觉   磁场、反电动势、KV/Kt、换相
 七层之外还有功能安全、多电机协同、AI 控制——那些是 L6 之后再分叉的枝，先把主干长全。
 
 **最小起步配置**：一块带三相驱动的开发板（B-G431B-ESC1 这类，或 SimpleFOC 生态板）+ 一个无刷电机 + 一台示波器。前三个月只干三件事：六步换相转起来、示波器把波形抓明白、手敲 FOC 跑电流环。
+
+## 怎么用这份清单
+
+这是一份"按层取用"的学习路径，不是收藏夹。拿到手按三步走：
+
+1. **先学什么**——按技能树从 L0 往上走：先确认 L0 物理直觉、L1 功率级、L2 测量这三层的基本功过关（每层都有「过关标志」，见[七层技能树](#七层技能树)）。前三层是后面所有内容的地基，别跳过。
+2. **动手做什么**——每到一个新层，先做该层的**验收动作**再往下走（比如 L2 的"自己一次触发抓全 PWM / 相电流 / 编码器波形"）。能靠**关掉库手敲一遍**实现的（变换、SVPWM、电流环），优先手敲。想快速起步，直接拿走[资料速取](#资料速取30-秒上手)里三样现成的。
+3. **遇到问题查什么**——卡在哪一层就回哪一层的深度资料：文章用[深水区文章索引](#深水区文章索引持续更新)，教程/论文/视频用[资源索引](#资源索引)里对应的 resources 文档；调试翻车查[调试与测量经验](resources/调试与测量经验.md)里沉淀的 9 条方法论。
+
+一句话：**层没到不硬啃，动手验证比收藏更重要。**
 
 ## 资料速取（30 秒上手）
 
@@ -82,11 +110,31 @@ L0 物理直觉   磁场、反电动势、KV/Kt、换相
 
 ## 资源索引
 
-- 📦 [resources/开源固件与项目.md](resources/开源固件与项目.md) — VESC / moteus / ODrive / SimpleFOC / AM32 对比（语言、许可证、活跃度、适合哪层人看、怎么读源码）
-- 📚 [resources/教程论文与视频.md](resources/教程论文与视频.md) — 按 L0–L6 分层的教程、论文、厂商应用笔记和视频，每条标注入门/进阶
-- 🔧 [resources/调试与测量经验.md](resources/调试与测量经验.md) — 示波器、电流采样、编码器对齐、炸管排查等实战方法论
+- 📦 [resources/开源固件与项目.md](resources/开源固件与项目.md) — 开源固件对比（语言/许可证/活跃度/怎么读源码）+ 开源硬件(PCB)子节 + 中文源（miniFOC/FPGA-FOC 等）
+- 📚 [resources/教程论文与视频.md](resources/教程论文与视频.md) — 按 L0–L6 分层的教程、论文、厂商应用笔记和视频，含仿真与工具链专区与控制理论教材书单
+- 🔧 [resources/调试与测量经验.md](resources/调试与测量经验.md) — 示波器、电流采样、编码器对齐、炸管排查等实战方法论 + EVB 选型、标准/认证验收、信号链测量
 - 📝 [interview/](interview/) — 秋招自测清单，25 题覆盖 L0–L6
 - 📋 [checklists/](checklists/) — 调试现场用的自检卡片，抓波、电流环，一屏五条
+
+## 收录标准
+
+这份清单**只收能直接上手的一手源和经过实战验证的方法论**，不收营销和转述。
+
+**收**
+
+- 官方仓库、厂商文档站、原作者站点这类**一手源**（教程、论文、应用笔记、开源固件）
+- 带**完整参数和波形**的真实调试案例与排查方法论
+- 适合某一技能层（L0–L6）的具体判断——每条资源都要标注能帮到哪一层
+- 仍在维护、许可证清晰的开源项目
+
+**不收**
+
+- 只给结论不给推导、来源二手的博客和转述
+- 脱离硬件、纯仿真的"学习教程"（只能当算法预习）
+- "X 天精通 FOC"式的营销与速成内容
+- 失效链接、活跃度已冻结且无学习价值的项目
+
+具体提交规范见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 相关项目
 
@@ -114,15 +162,23 @@ L0 物理直觉   磁场、反电动势、KV/Kt、换相
 - **面试题集**：《FOC面试10题》（逐题答案 + 追问链 + 面试官判分点）已在公众号发布
 - **图文避坑笔记**：小红书「MotorMind」，调试现场的坑更快更短
 
-## 贡献
+## 贡献方式
 
 欢迎 PR 和 issue：
 
 - 补资源：链接必须是真实存在的一手源（官方仓库、厂商文档、原作者站点），附上适合哪一层的判断
 - 改错误：数据失效（仓库活跃度、链接 404）、技术表述有误，直接提 issue 或 PR
 - 加案例：[调试与测量经验](resources/调试与测量经验.md) 接受带波形和参数的真实排查案例
+- 提需求：[tools/](tools/README.md) 的代码模板想要新模块，issue 点名即可
+
+**完整规范见 [CONTRIBUTING.md](CONTRIBUTING.md)**：收录标准、提交信息格式、PR 审查流程、免责声明都在里面。提 issue 前也可以直接用 [资源推荐](.github/ISSUE_TEMPLATE/资源推荐.md) / [链接失效](.github/ISSUE_TEMPLATE/链接失效.md) 模板。
 
 维护者精力有限，这个库靠大家一起保持新鲜。
+
+## 最近更新
+
+- **2026-10-16**：新增目录导航、收录标准与"怎么用这份清单"章节；补充贡献规范（CONTRIBUTING.md）与 issue / PR 模板；新增英文简介 README.en.md。
+- 内容持续在[深水区文章索引](#深水区文章索引持续更新)增量补充，列表、模板与代码会随迭代逐步维护。
 
 ## License
 
