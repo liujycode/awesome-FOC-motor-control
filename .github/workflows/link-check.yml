@@ -53,11 +53,13 @@ jobs:
           #  - --accept 200,206,429：429=被限流不算「链接失效」；403 不放行（真 403 要暴露，
           #    反爬站点改用下面的 --exclude 白名单处理）。
           #  - --user-agent：默认 UA（lychee/x.y）会被不少站点直接拒；用常见浏览器 UA 降假红。
-          #  - --exclude 白名单只放行「人工确认过有效」的站点，覆盖两类假红：
-          #    ① 反爬（TI E2E / ST / Microchip 等对 CI IP 返 403/超时）；
+          #  - --exclude 白名单只放行「人工确认过有效」的站点，覆盖三类假红：
+          #    ① 反爬（TI E2E / ST / Microchip / Bilibili 等对 CI IP 返 403/412/超时）；
           #    ② HTTP/2 协议错（developerhelp.microchip.com 的 xwiki 宣告 h2 但实现有问题，
           #       浏览器走 h1 正常，lychee 走 h2 握手失败报 E1000，属传输层错误，
-          #       --accept 放行不了，只能按域名排除）。
+          #       --accept 放行不了，只能按域名排除）；
+          #    ③ UA 触发的假 404（www.nxp.jp 对「带浏览器 UA 的非住宅 IP」回 404 页面，
+          #       同一 URL 不带 UA 或用浏览器打开都是 200，删掉这行 exclude 就会假红）。
           args: >-
             --no-progress
             --max-retries 3
@@ -77,6 +79,7 @@ jobs:
             --exclude 'www\.infineon\.com'
             --exclude 'space\.bilibili\.com'
             "README.md"
+            "README.en.md"
             "resources/*.md"
             "interview/*.md"
         env:
