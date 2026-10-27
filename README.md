@@ -103,9 +103,9 @@ L0 物理直觉   磁场、反电动势、KV/Kt、换相
 |---|---|
 | L0–L1 | [教程论文与视频](resources/教程论文与视频.md) 里的 Microchip "DC 量的错觉"、TI Precision Labs 中文课、TI E2E BLDC FAQ |
 | L2 | [调试与测量经验](resources/调试与测量经验.md) 第 1–3 条；SimpleFOC 文档站与论坛翻车帖 |
-| L3 | [开源固件与项目](resources/开源固件与项目.md)（SimpleFOC → bldc_foc → ODrive 源码）；Wescott《PID Without a PhD》；慧驱动 60 讲 |
+| L3 | [开源固件与项目](resources/开源固件与项目.md)（SimpleFOC → bldc_foc → ODrive 源码）；Wescott《PID Without a PhD》 |
 | L4 | ODrive 文档 tuning 章节、mjbots 博客；[调试经验](resources/调试与测量经验.md) 第 5–6 条 |
-| L5 | Microchip AN1078（滑模）、TI SPRUHJ1I（FAST）、NXP AN14454（单电阻无感） |
+| L5 | Microchip AN1078（滑模）、TI SPRUHJ1I（FAST）、NXP AN14454（单电阻无感）；慧驱动无感 FOC 新稿 |
 | L6 | [开源固件与项目](resources/开源固件与项目.md) 里 VESC / moteus 的 CHANGELOG 与 issue 区；[调试经验](resources/调试与测量经验.md) 第 4、7、8 条 |
 | 新项目选型 | [checklists/电机选型六步与审查清单.md](checklists/电机选型六步与审查清单.md)：六步决策树 + 两张表，问不出数的行就是需求漏洞 |
 | 找工作 | [interview/FOC面试高频25问_自测清单.pdf](interview/FOC面试高频25问_自测清单.pdf)：25 题带层级、答题骨架和追问，盖住关键词自测，卡壳的题就是你的薄弱层 |
