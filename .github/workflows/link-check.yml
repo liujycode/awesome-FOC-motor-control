@@ -2,7 +2,9 @@ name: Link Check
 
 # 链接体检：定期（每周）+ push/PR 时检查 Markdown 里的外链是否失效。
 # 为什么要白名单：TI E2E / Microchip / ST wiki 等站点对 CI 数据中心 IP 有反爬，
-# 会返回 403/超时（假红）。这些域名显式排除，避免「狼来了」导致体检被无视。
+# 会返回 403/超时；个别站点（如 developerhelp.microchip.com 的 xwiki）宣告支持
+# HTTP/2 但实现有问题，lychee 走 h2 会报 E1000 协议错——这些都属于「假红」，
+# 链接本身有效（浏览器走 h1 能正常打开）。显式排除，避免「狼来了」导致体检被无视。
 # 想恢复对某个域名的检查：删掉对应的 --exclude 行即可。
 
 on:
@@ -51,6 +53,11 @@ jobs:
           #  - --accept 200,206,429：429=被限流不算「链接失效」；403 不放行（真 403 要暴露，
           #    反爬站点改用下面的 --exclude 白名单处理）。
           #  - --user-agent：默认 UA（lychee/x.y）会被不少站点直接拒；用常见浏览器 UA 降假红。
+          #  - --exclude 白名单只放行「人工确认过有效」的站点，覆盖两类假红：
+          #    ① 反爬（TI E2E / ST / Microchip 等对 CI IP 返 403/超时）；
+          #    ② HTTP/2 协议错（developerhelp.microchip.com 的 xwiki 宣告 h2 但实现有问题，
+          #       浏览器走 h1 正常，lychee 走 h2 握手失败报 E1000，属传输层错误，
+          #       --accept 放行不了，只能按域名排除）。
           args: >-
             --no-progress
             --max-retries 3
@@ -65,6 +72,7 @@ jobs:
             --exclude 'wiki\.st\.com'
             --exclude 'www\.st\.com'
             --exclude 'www\.microchip\.com'
+            --exclude 'developerhelp\.microchip\.com'
             --exclude 'www\.nxp\.jp'
             --exclude 'www\.infineon\.com'
             --exclude 'space\.bilibili\.com'
